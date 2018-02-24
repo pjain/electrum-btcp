@@ -5,10 +5,9 @@ build/
 dist/
 *.egg/
 /electrum.py
-/electrum-mac.py
 .DS_Store
 contrib/pyinstaller/
-Electrum.egg-info/
+Electrum_BTCP.egg-info/
 gui/qt/icons_rc.py
 locale/
 .devlocaltmp/
