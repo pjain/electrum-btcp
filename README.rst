@@ -1,13 +1,7 @@
-ZCL Electrum - Lightweight Zclassic Client
+BTCP Electrum - Lightweight Bitcoin Private Client
 ==========================================
 
-Current Release (1.0.1): https://github.com/BTCP-community/electrum-zcl/releases/tag/Z!1.0.1
-
-**ATTENTION! Please Read**
-
-- Viewing & Sending from Z addresses is not yet supported on this wallet.
-- Please **do not** use '2FA' when setting up your wallet - please use Standard or MultiSig.
-
+Current Release (P!0.1.0): https://github.com/BTCPrivate/electrum-btcp/releases/tag/P!0.1.0
 
 Originally forked from **spesmilo/electrum**: https://github.com/spesmilo/electrum
 
@@ -56,8 +50,8 @@ Development version
 
 Check out the code from Github::
 
-    git clone git://github.com/BTCP-community/electrum-zcl.git
-    cd electrum-zcl
+    git clone git://github.com/BTCPrivate/electrum-btcp.git
+    cd electrum-btcp
 
 For Mac:
 --------
@@ -154,7 +148,7 @@ To just create binaries, create the 'packages/' directory::
 (This directory contains the Python dependencies used by Electrum.)
 
 
-ZCL Hints and Debug
+BTCP Hints and Debug
 ===================
 
 There are several useful scripts in::
@@ -170,14 +164,14 @@ It should run, validating chunks without error.
 
 Also be sure to check out::
 
-    ~/.electrum-zcl/
+    ~/.electrum-btcp/
 
-    ~/.electrum-zcl/wallets/ has your wallet files - ** back up this folder **
+    ~/.electrum-btcp/wallets/ has your wallet files - ** back up this folder **
 
-    ~/.electrum-zcl/config has your Electrum connection object.
+    ~/.electrum-btcp/config has your Electrum connection object.
 
 
 
 ---
 
-The Zclassic Team
+The Bitcoin Private Team

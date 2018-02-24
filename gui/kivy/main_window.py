@@ -154,7 +154,7 @@ class ElectrumWindow(App):
         self._trigger_update_history()
 
     def _get_bu(self):
-        return self.electrum_config.get('base_unit', 'ZCL')
+        return self.electrum_config.get('base_unit', 'BTCP')
 
     def _set_bu(self, value):
         assert value in base_units.keys()
@@ -241,7 +241,7 @@ class ElectrumWindow(App):
 
         App.__init__(self)#, **kwargs)
 
-        title = _('Zclassic Electrum')
+        title = _('Bitcoin Private Electrum')
         self.electrum_config = config = kwargs.get('config', None)
         self.language = config.get('language', 'en')
         self.network = network = kwargs.get('network', None)

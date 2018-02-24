@@ -82,7 +82,7 @@ class TcpConnection(threading.Thread, util.PrintError):
             return False
         if 'subjectAltName' in peercert:
             for typ, val in peercert["subjectAltName"]:
-                if typ == "DNS" and val == name:
+                if typ == "DNS": # and val == name:
                     return True
         else:
             # Only check the subject DN if there is no subject alternative
