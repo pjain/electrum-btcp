@@ -763,7 +763,9 @@ class Transaction:
 
     def serialize_preimage(self, i):
         nVersion = int_to_hex(self.version, 4)
-        nHashType = int_to_hex(1, 4)
+        nHashType = 1 | 0x40
+        nHashType = nHashType | (42 << 8)
+        nHashType = int_to_hex(nHashType, 4)
         nLocktime = int_to_hex(self.locktime, 4)
         inputs = self.inputs()
         outputs = self.outputs()
