@@ -15,7 +15,7 @@ from lib.version import ELECTRUM_VERSION as version
 
 CERT_PATH = requests.certs.where()
 
-name = "Electrum"
+name = "Electrum BTCP"
 mainscript = 'electrum'
 
 plist = Plist.fromFile('Info.plist')

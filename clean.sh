@@ -2,6 +2,6 @@
 
 sudo rm -rf build/
 sudo rm -rf dist/
-sudo rm -rf Electrum-Egg*
+sudo rm -rf __pycache__
+sudo rm -rf Electrum_BTCP.egg-info
 
-sudo python3 setup.py install
