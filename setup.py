@@ -88,7 +88,7 @@ setup(
             'locale/*/LC_MESSAGES/electrum.mo',
         ]
     },
-    scripts=['electrum'],
+    scripts=['electrum-btcp'],
     data_files=data_files,
     description="Lightweight Bitcoin Private Wallet",
     author="BTCP Community",

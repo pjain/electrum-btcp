@@ -34,7 +34,7 @@ datas = [
 # datas += collect_data_files('keepkeylib')
 
 # We don't put these files in to actually include them in the script but to make the Analysis method scan them for imports
-a = Analysis([home+'electrum',
+a = Analysis([home+'electrum-btcp',
               home+'gui/qt/main_window.py',
               home+'gui/text.py',
               home+'lib/util.py',
@@ -77,7 +77,7 @@ exe_standalone = EXE(
     a.scripts,
     a.binaries,
     a.datas, 
-    name=os.path.join('build\\pyi.win32\\electrum', cmdline_name + ".exe"),
+    name=os.path.join('build\\pyi.win32\\electrum-btcp', cmdline_name + ".exe"),
     debug=False,
     strip=None,
     upx=False,
