@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo "Cleaning..."
 sudo sh ./clean.sh
 
 VERSION=$(cat lib/version.py \
@@ -10,10 +11,10 @@ VERSION=${VERSION//ELECTRUM_VERSION=/}
 
 echo "Creating package $VERSION"
 
-echo "brew install"
+echo "Running brew install"
 brew bundle
 
-echo "pip install"
+echo "Running pip3 install"
 pip3 install -r requirements.txt
 
 echo "Building icons"
@@ -28,10 +29,15 @@ echo "Compiling translations"
 echo "Creating package $VERSION"
 sudo python3 setup.py sdist
 
-echo "Creating python app using py2app"
+echo "Creating .app from python using py2app"
 sudo ARCHFLAGS="-arch i386 -arch x86_64" sudo python3 setup-release.py py2app --includes sip
 
-echo "Creating dist/Electrum.app and .dmg"
-sudo hdiutil create -fs HFS+ -volname "Electrum BTCP - Installer" -srcfolder "dist/Electrum BTCP.app" dist/electrum-$VERSION-macosx.dmg
+sudo mkdir dist/installer-mac/
+sudo mv "dist/Electrum BTCP.app" "dist/installer-mac/"
+sudo touch "dist/installer-mac/To install, copy it into Applications"
 
-echo "Done!"
+echo "Creating .dmg"
+sudo hdiutil create -fs HFS+ -volname "Electrum BTCP - Installer" -srcfolder "dist/installer-mac" dist/electrum-$VERSION-macosx.dmg
+
+echo "Done! .dmg and .app are in dist/"
+
