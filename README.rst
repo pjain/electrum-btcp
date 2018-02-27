@@ -1,7 +1,7 @@
-ZCL Electrum - Zclassic Electrum (Lite) Client
-==============================================
+BTCP Electrum - Lightweight Bitcoin Private Client
+==========================================
 
-Latest Release: https://github.com/BTCP-community/electrum-zcl/releases/
+Current Release (P!0.1.0): https://github.com/BTCPrivate/electrum-btcp/releases/tag/P!0.1.0
 
 
 Viewing & Sending from Z addresses is not yet supported on this wallet.
@@ -23,8 +23,8 @@ Development Version
 
 First, clone from Github::
 
-    git clone https://github.com/BTCP-community/electrum-zcl
-    cd electrum-zcl
+    git clone git://github.com/BTCPrivate/electrum-btcp.git
+    cd electrum-btcp
 
 For Mac:
 --------
@@ -50,6 +50,7 @@ Using Homebrew::
     ./create-dmg
 
     # Run
+    ./electrum
 
 
 For Linux:
@@ -89,7 +90,7 @@ Create translations (optional)::
 
 Run::
 
-    ./electrum-zcl
+    ./electrum
 
 
 For Linux with docker:
@@ -138,14 +139,14 @@ To just create binaries, create the 'packages/' directory::
 (This directory contains the Python dependencies used by Electrum.)
 
 
-ZCL Hints and Debug
+BTCP Hints and Debug
 ===================
 
 There are several useful scripts in::
 
     scripts
 
-Here is a good initial check to determine whether things are working (should successfully validate chunks)::
+This is a good initial check to determine whether things are working.::
 
     cd scripts
     python3 block_headers
@@ -154,11 +155,11 @@ Here is a good initial check to determine whether things are working (should suc
 
 The Zclassic Wiki is located at: https://github.com/z-classic/zclassic/wiki. Please use this as a reference and feel free to contribute.
 
-There is also an Electrum ZCL wiki at: https://github.com/BTCP-community/electrum-zcl/wiki. It contains information about setting up the ElectrumX Server (https://github.com/BTCP-community/electrumx), which is the provider for block and peer data.
+    ~/.electrum-btcp/
 
---
+    ~/.electrum-btcp/wallets/ has your wallet files - ** back up this folder **
 
-Here is our current progress on zk-SNARK integration: https://github.com/BTCP-community/electrum-zcl/wiki/Shielded-Transactions
+    ~/.electrum-btcp/config has your Electrum connection object.
 
 
 Original Project Info
@@ -184,6 +185,4 @@ Original Project Info
 
 ---
 
-The Zclassic Team
-
-ZCL: t1gsePJZ6ojJYygj3PWMGJfojPUoMd5AVfU
+The Bitcoin Private Team

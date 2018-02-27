@@ -2,13 +2,13 @@
 # sudo desktop-file-install electrum.desktop
 
 [Desktop Entry]
-Comment=Lightweight Zclassic Client
-Exec=electrum %u
-GenericName[en_US]=Zclassic Wallet
-GenericName=Zclassic Wallet
+Comment=Lightweight Bitcoin Private Client
+Exec=electrum-btcp %u
+GenericName[en_US]=Bitcoin Private Wallet
+GenericName=Bitcoin Private Wallet
 Icon=electrum
-Name[en_US]=Zclassic Electrum Wallet
-Name=Zclassic Electrum Wallet
+Name[en_US]=Bitcoin Private Electrum Wallet
+Name=Bitcoin Private Electrum Wallet
 Categories=Finance;Network;
 StartupNotify=false
 Terminal=false
