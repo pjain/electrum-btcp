@@ -432,20 +432,15 @@ def time_difference(distance_in_time, include_seconds):
 
 # For raw json, append /insight-api-zcash
 mainnet_block_explorers = {
-    'ZclassicExplorer.com': ('http://zclassicexplorer.com',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'ZCLMine.pro': ('http://explorer.zclmine.pro',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'MyZCL.com': ('http://myzcl.com',
+    'explorer.btcprivate.org': ('https://explorer.btcprivate.org',
                         {'tx': 'tx', 'addr': 'address'}),
     'system default': ('blockchain:',
                         {'tx': 'tx', 'addr': 'address'})
 }
 
-# TODO btcp testnet block explorer
 testnet_block_explorers = {
-    #'Blocktrail.com': ('https://www.blocktrail.com/tBTC',
-                       #{'tx': 'tx', 'addr': 'address'}),
+    #'testnet.btcprivate.org': ('https://testnet.btcprivate.org',
+    #                    {'tx': 'tx', 'addr': 'address'}),
     'system default': ('blockchain:',
                        {'tx': 'tx', 'addr': 'address'})
 }
@@ -455,7 +450,7 @@ def block_explorer_info():
     return testnet_block_explorers if bitcoin.NetworkConstants.TESTNET else mainnet_block_explorers
 
 def block_explorer(config):
-    return config.get('block_explorer', 'explorer.zclassic.org/insight/')
+    return config.get('block_explorer', 'explorer.btcprivate.org')
 
 def block_explorer_tuple(config):
     return block_explorer_info().get(block_explorer(config))
