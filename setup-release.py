@@ -16,7 +16,7 @@ from lib.version import ELECTRUM_VERSION as version
 CERT_PATH = requests.certs.where()
 
 name = "Electrum BTCP"
-mainscript = 'electrum'
+mainscript = 'electrum-btcp'
 
 plist = Plist.fromFile('Info.plist')
 plist.update(dict(CFBundleIconFile='icons/electrum.icns'))
@@ -29,28 +29,28 @@ extra_options = dict(
     setup_requires=['py2app'],
     app=[mainscript],
     packages=[
-        'electrum',
-        'electrum_gui',
-        'electrum_gui.qt',
-        'electrum_plugins',
-        'electrum_plugins.audio_modem',
-        'electrum_plugins.cosigner_pool',
-        'electrum_plugins.email_requests',
-        'electrum_plugins.greenaddress_instant',
-        'electrum_plugins.hw_wallet',
-        'electrum_plugins.keepkey',
-        'electrum_plugins.labels',
-        'electrum_plugins.ledger',
-        'electrum_plugins.trezor',
-        'electrum_plugins.digitalbitbox',
-        'electrum_plugins.trustedcoin',
-        'electrum_plugins.virtualkeyboard',
+        'electrum-btcp',
+        'electrum-btcp_gui',
+        'electrum-btcp_gui.qt',
+        'electrum-btcp_plugins',
+        'electrum-btcp_plugins.audio_modem',
+        'electrum-btcp_plugins.cosigner_pool',
+        'electrum-btcp_plugins.email_requests',
+        'electrum-btcp_plugins.greenaddress_instant',
+        'electrum-btcp_plugins.hw_wallet',
+        'electrum-btcp_plugins.keepkey',
+        'electrum-btcp_plugins.labels',
+        'electrum-btcp_plugins.ledger',
+        'electrum-btcp_plugins.trezor',
+        'electrum-btcp_plugins.digitalbitbox',
+        'electrum-btcp_plugins.trustedcoin',
+        'electrum-btcp_plugins.virtualkeyboard',
 
     ],
     package_dir={
-        'electrum': 'lib',
-        'electrum_gui': 'gui',
-        'electrum_plugins': 'plugins'
+        'electrum-btcp': 'lib',
+        'electrum-btcp_gui': 'gui',
+        'electrum-btcp_plugins': 'plugins'
     },
     data_files=[CERT_PATH],
     options=dict(py2app=dict(argv_emulation=False,
