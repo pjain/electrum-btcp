@@ -363,7 +363,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.setGeometry(100, 100, 840, 400)
 
     def watching_only_changed(self):
-        name = "[TESTNET] Zclassic Electrum" if NetworkConstants.TESTNET else "Zclassic Electrum"
+        name = "[TESTNET] Bitcoin Private Electrum" if NetworkConstants.TESTNET else "Bitcoin Private Electrum"
         title = '%s %s  -  %s' % (name, self.wallet.electrum_version,
                                         self.wallet.basename())
         extra = [self.wallet.storage.get('wallet_type', '?')]
@@ -381,8 +381,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.wallet.is_watching_only():
             msg = ' '.join([
                 _("This wallet is watching-only."),
-                _("This means you will not be able to spend Zclassic with it."),
-                _("Make sure you own the seed phrase or the private keys, before you request Zclassic to be sent to this wallet.")
+                _("This means you will not be able to spend BTCP with it."),
+                _("Make sure you own the seed phrase or the private keys, before you request BTCP to be sent to this wallet.")
             ])
             self.show_warning(msg, title=_('Information'))
 
@@ -516,9 +516,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         help_menu = menubar.addMenu(_("&Help"))
         help_menu.addAction(_("&About"), self.show_about)
-        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("https://zclassic.org"))
+        help_menu.addAction(_("&Official website"), lambda: webbrowser.open("https://btcprivate.org"))
         help_menu.addSeparator()
-        help_menu.addAction(_("&Documentation"), lambda: webbrowser.open("https://github.com/BTCP-community/electrum-zcl/")).setShortcut(QKeySequence.HelpContents)
+        help_menu.addAction(_("&Documentation"), lambda: webbrowser.open("https://github.com/z-classic/zclassic/wiki")).setShortcut(QKeySequence.HelpContents)
         help_menu.addAction(_("&Report Bug"), self.show_report_bug)
         help_menu.addSeparator()
         help_menu.addAction(_("&Donate to server"), self.donate_to_server)
@@ -534,19 +534,19 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.show_error(_('No donation address for this server'))
 
     def show_about(self):
-        QMessageBox.about(self, "Zclassic Electrum",
+        QMessageBox.about(self, "Electrum BTCP",
             _("Version")+" %s" % (self.wallet.electrum_version) + "\n\n" +
-                _("Electrum-ZCL's focus is speed, with low resource usage and simplifying Zclassic. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Zclassic system."  + "\n\n" +
+                _("Electrum BTCP's focus is speed, with low resource usage and simplifying Bitcoin Private. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Bitcoin Private system."  + "\n\n" +
                 _("Uses icons from the Icons8 icon pack (icons8.com).")))
 
     def show_report_bug(self):
         msg = ' '.join([
             _("Please report any bugs as issues on github:<br/>"),
-            "<a href=\"https://github.com/BTCP-community/electrum-zcl/issues\">https://github.com/BTCP-community/electrum-zcl/issues</a><br/><br/>",
+            "<a href=\"https://github.com/BTCPrivate/electrum-btcp/issues\">https://github.com/BTCPrivate/electrum-btcp/issues</a><br/><br/>",
             _("Before reporting a bug, upgrade to the most recent version of Electrum-ZCL (latest release or git HEAD), and include the version number in your report."),
             _("Try to explain not only what the bug is, but how it occurs.")
          ])
-        self.show_message(msg, title="Zclassic Electrum - " + _("Reporting Bugs"))
+        self.show_message(msg, title="Electrum BTCP - " + _("Reporting Bugs"))
 
     def notify_transactions(self):
         if not self.network or not self.network.is_connected():
@@ -576,9 +576,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.tray:
             try:
                 # this requires Qt 5.9
-                self.tray.showMessage("Electrum", message, QIcon(":icons/electrum_dark_icon"), 20000)
+                self.tray.showMessage("Electrum BTCP", message, QIcon(":icons/electrum_dark_icon"), 20000)
             except TypeError:
-                self.tray.showMessage("Electrum", message, QSystemTrayIcon.Information, 20000)
+                self.tray.showMessage("Electrum BTCP", message, QSystemTrayIcon.Information, 20000)
 
 
 
@@ -626,7 +626,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
     def format_fee_rate(self, fee_rate):
         if self.fee_unit == 0:
-            return format_satoshis(fee_rate/1000, False, self.num_zeros, 0, False)  + ' zat/byte'
+            return format_satoshis(fee_rate/1000, False, self.num_zeros, 0, False)  + ' sat/byte'
         else:
             return self.format_amount(fee_rate) + ' ' + self.base_unit() + '/kB'
 
@@ -638,9 +638,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.decimal_point == 2:
             return 'bits'
         if self.decimal_point == 5:
-            return 'mZCL'
+            return 'mBTCP'
         if self.decimal_point == 8:
-            return 'ZCL'
+            return 'BTCP'
         raise Exception('Unknown base unit')
 
     def connect_fields(self, window, btc_e, fiat_e, fee_e):
@@ -764,7 +764,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton(self.app)
         self.receive_address_e.setReadOnly(True)
-        msg = _('Zclassic address where the payment should be received. Note that each payment request uses a different Zclassic address.')
+        msg = _('BTCP address where the payment should be received. Note that each payment request uses a different BTCP address.')
         self.receive_address_label = HelpLabel(_('Receiving address'), msg)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
         self.receive_address_e.setFocusPolicy(Qt.NoFocus)
@@ -794,7 +794,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Zclassic addresses.'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding BTCP addresses.'),
             _('The bitcoin address never expires and will always be part of this electrum wallet.'),
         ])
         grid.addWidget(HelpLabel(_('Request expires'), msg), 3, 0)
@@ -1010,7 +1010,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.amount_e = BTCAmountEdit(self.get_decimal_point)
         self.payto_e = PayToEdit(self)
         msg = _('Recipient of the funds.') + '\n\n'\
-              + _('You may enter a Zclassic address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a Zclassic address)')
+              + _('You may enter a BTCP address, a label from your list of contacts (a list of completions will be proposed), or an alias (email-like address that forwards to a BTCP address)')
         payto_label = HelpLabel(_('Pay to'), msg)
         grid.addWidget(payto_label, 1, 0)
         grid.addWidget(self.payto_e, 1, 1, 1, -1)
@@ -1057,7 +1057,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         hbox.addStretch(1)
         grid.addLayout(hbox, 4, 4)
 
-        msg = _('Zclassic transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
+        msg = _('BTCP transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
               + _('The amount of fee can be decided freely by the sender. However, transactions with low fees take more time to be processed.') + '\n\n'\
               + _('A suggested fee is automatically added to this field. You may override it. The suggested fee increases with the size of the transaction.')
         self.fee_e_label = HelpLabel(_('Fee'), msg)
@@ -1389,10 +1389,10 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         for _type, addr, amount in outputs:
             if addr is None:
-                self.show_error(_('No Zclassic Address'))
+                self.show_error(_('No BTCP Address'))
                 return
             if _type == TYPE_ADDRESS and not bitcoin.is_address(addr):
-                self.show_error(_('Invalid Zclassic Address'))
+                self.show_error(_('Invalid BTCP Address'))
                 return
             if amount is None:
                 self.show_error(_('Invalid Amount'))
@@ -2028,7 +2028,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         address  = address.text().strip()
         message = message.toPlainText().strip()
         if not bitcoin.is_address(address):
-            self.show_message(_('Invalid Zclassic address.'))
+            self.show_message(_('Invalid BTCP address.'))
             return
         if not self.wallet.is_mine(address):
             self.show_message(_('Address not in wallet.'))
@@ -2048,7 +2048,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         address  = address.text().strip()
         message = message.toPlainText().strip().encode('utf-8')
         if not bitcoin.is_address(address):
-            self.show_message(_('Invalid Zclassic address.'))
+            self.show_message(_('Invalid BTCP address.'))
             return
         try:
             # This can throw on invalid base64
@@ -2599,7 +2599,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.fee_unit = self.config.get('fee_unit', 0)
         fee_unit_label = HelpLabel(_('Fee Unit') + ':', '')
         fee_unit_combo = QComboBox()
-        fee_unit_combo.addItems([_('zat/byte'), _('mZCL/kB')])
+        fee_unit_combo.addItems([_('sat/byte'), _('mBTCP/kB')])
         fee_unit_combo.setCurrentIndex(self.fee_unit)
         def on_fee_unit(x):
             self.fee_unit = x
@@ -2658,9 +2658,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         SSL_id_e.setReadOnly(True)
         id_widgets.append((SSL_id_label, SSL_id_e))
 
-        units = ['ZCL', 'mZCL', 'bits']
+        units = ['BTCP', 'mBTCP', 'bits']
         msg = _('Base unit of your wallet.')\
-              + '\n1ZCL=1000mZCL.\n' \
+              + '\n1BTCP=1000mBTCP.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -2672,9 +2672,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 return
             edits = self.amount_e, self.fee_e, self.receive_amount_e
             amounts = [edit.get_amount() for edit in edits]
-            if unit_result == 'ZCL':
+            if unit_result == 'BTCP':
                 self.decimal_point = 8
-            elif unit_result == 'mZCL':
+            elif unit_result == 'mBTCP':
                 self.decimal_point = 5
             elif unit_result == 'bits':
                 self.decimal_point = 2

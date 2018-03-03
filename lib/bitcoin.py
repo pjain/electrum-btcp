@@ -72,34 +72,32 @@ XPUB_HEADERS = {
 
 class NetworkConstants:
 
-    # https://github.com/z-classic/zclassic/blob/master/src/chainparams.cpp#L103
     @classmethod
     def set_mainnet(cls):
         cls.TESTNET = False
         cls.WIF_PREFIX = 0x80
-        cls.ADDRTYPE_P2PKH = [0x1C, 0xB8]
-        cls.ADDRTYPE_P2SH = [0x1C, 0xBD]
-        cls.ADDRTYPE_SHIELDED = [0x16, 0x9A]
-        cls.SEGWIT_HRP = "bc" #TODO zcl has no segwit
+        cls.ADDRTYPE_P2PKH = [0x13, 0x25]
+        cls.ADDRTYPE_P2SH = [0x13, 0xAF]
+        cls.ADDRTYPE_SHIELDED = [0x16, 0xA8]
+        cls.SEGWIT_HRP = "bc" #TODO btcp has no segwit
         cls.GENESIS = "0007104ccda289427919efc39dc9e4d499804b7bebc22df55f8b834301260602"
         cls.DEFAULT_PORTS = {'t': '50001', 's': '50002'}
         cls.DEFAULT_SERVERS = read_json('servers.json', {})
         cls.CHECKPOINTS = read_json('checkpoints.json', [])
         cls.EQUIHASH_N = 200
         cls.EQUIHASH_K = 9
-        cls.HEADERS_URL = "http://headers.zcl-electrum.com/blockchain_headers"
+        cls.HEADERS_URL = "http://headers.btcprivate.org/blockchain_headers"
 
         cls.CHUNK_SIZE = 200
 
-    # https://github.com/z-classic/zclassic/blob/master/src/chainparams.cpp#L234
     @classmethod
     def set_testnet(cls):
         cls.TESTNET = True
         cls.WIF_PREFIX = 0xef
-        cls.ADDRTYPE_P2PKH = [0x1D, 0x25]
-        cls.ADDRTYPE_P2SH = [0x1C, 0xBA]
-        cls.ADDRTYPE_SHIELDED = [0x16, 0xB6]
-        cls.SEGWIT_HRP = "tb" #TODO zcl has no segwit
+        cls.ADDRTYPE_P2PKH = [0x19, 0x58]
+        cls.ADDRTYPE_P2SH = [0x19, 0xE0]
+        cls.ADDRTYPE_SHIELDED = [0x16, 0xC0]
+        cls.SEGWIT_HRP = "tb" #TODO btcp has no segwit
         cls.GENESIS = "03e1c4bb705c871bf9bfda3e74b7f8f86bff267993c215a89d5795e3708e5e1f"
         cls.DEFAULT_PORTS = {'t': '51001', 's': '51002'}
         cls.DEFAULT_SERVERS = read_json('servers_testnet.json', {})

@@ -15,8 +15,8 @@ from lib.version import ELECTRUM_VERSION as version
 
 CERT_PATH = requests.certs.where()
 
-name = "Electrum ZCL"
-mainscript = 'electrum-zcl'
+name = "Electrum BTCP"
+mainscript = 'electrum-btcp'
 
 plist = Plist.fromFile('Info.plist')
 plist.update(dict(CFBundleIconFile='icons/electrum.icns'))
@@ -29,28 +29,28 @@ extra_options = dict(
     setup_requires=['py2app'],
     app=[mainscript],
     packages=[
-        'electrum-zcl',
-        'electrum-zcl_gui',
-        'electrum-zcl_gui.qt',
-        'electrum-zcl_plugins',
-        'electrum-zcl_plugins.audio_modem',
-        'electrum-zcl_plugins.cosigner_pool',
-        'electrum-zcl_plugins.email_requests',
-        'electrum-zcl_plugins.greenaddress_instant',
-        'electrum-zcl_plugins.hw_wallet',
-        'electrum-zcl_plugins.keepkey',
-        'electrum-zcl_plugins.labels',
-        'electrum-zcl_plugins.ledger',
-        'electrum-zcl_plugins.trezor',
-        'electrum-zcl_plugins.digitalbitbox',
-        'electrum-zcl_plugins.trustedcoin',
-        'electrum-zcl_plugins.virtualkeyboard',
+        'electrum-btcp',
+        'electrum-btcp_gui',
+        'electrum-btcp_gui.qt',
+        'electrum-btcp_plugins',
+        'electrum-btcp_plugins.audio_modem',
+        'electrum-btcp_plugins.cosigner_pool',
+        'electrum-btcp_plugins.email_requests',
+        'electrum-btcp_plugins.greenaddress_instant',
+        'electrum-btcp_plugins.hw_wallet',
+        'electrum-btcp_plugins.keepkey',
+        'electrum-btcp_plugins.labels',
+        'electrum-btcp_plugins.ledger',
+        'electrum-btcp_plugins.trezor',
+        'electrum-btcp_plugins.digitalbitbox',
+        'electrum-btcp_plugins.trustedcoin',
+        'electrum-btcp_plugins.virtualkeyboard',
 
     ],
     package_dir={
-        'electrum-zcl': 'lib',
-        'electrum-zcl_gui': 'gui',
-        'electrum-zcl_plugins': 'plugins'
+        'electrum-btcp': 'lib',
+        'electrum-btcp_gui': 'gui',
+        'electrum-btcp_plugins': 'plugins'
     },
     data_files=[CERT_PATH],
     options=dict(py2app=dict(argv_emulation=False,
