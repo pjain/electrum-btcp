@@ -50,7 +50,7 @@ Using Homebrew::
     ./create-dmg
 
     # Run
-    ./electrum
+    ./electrum-btcp
 
 
 For Linux:
@@ -90,7 +90,7 @@ Create translations (optional)::
 
 Run::
 
-    ./electrum
+    ./electrum-btcp
 
 
 For Linux with docker:
