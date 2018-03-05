@@ -9,10 +9,10 @@ Viewing & Sending from Z addresses is not yet supported on this wallet.
 
 Know about your data directory::
 
-    Linux + Mac: ~/.electrum-zcl/
-    Windows: C:\Users\YourUserName\AppData\Roaming\Electrum-zcl\
+    Linux + Mac: ~/.electrum-btcp/
+    Windows: C:\Users\YourUserName\AppData\Roaming\Electrum-btcp\
 
-    ~/.electrum-zcl/wallets/ has your wallet files - BACK UP THIS FOLDER
+    ~/.electrum-btcp/wallets/ has your wallet files - BACK UP THIS FOLDER
 
 You can also use 'Export Private Keys' and 'Show Seed' from inside the application to write down and store your funds.
 
