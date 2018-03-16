@@ -88,12 +88,11 @@ class ExchangeBase(PrintError):
         return sorted([str(a) for (a, b) in rates.items() if b is not None and len(a) in [3,4]])
 
 
-class CryptoCompare(ExchangeBase):
+class CoinMarketCap(ExchangeBase):
     def get_rates(self, ccy):
-        json = self.get_json('min-api.cryptocompare.com',
-                             "/data/pricehistorical?fsym=BTCP&tsyms=USD")
-        return {'USD': Decimal(json['BTCP']['USD'])}
-
+        json = self.get_json('api.coinmarketcap.com',
+                             "/v1/ticker/btcprivate?convert=%s")
+        return {'USD': Decimal(json[0]['price_usd'])}
 
 
 def dictinvert(d):
@@ -199,7 +198,7 @@ class FxThread(ThreadJob):
         return self.config.get('currency', 'USD')
 
     def config_exchange(self):
-        return self.config.get('use_exchange', 'CryptoCompare')
+        return self.config.get('use_exchange', 'CoinMarketCap')
 
     def show_history(self):
         return self.is_enabled() and self.get_history_config() and self.ccy in self.exchange.history_ccys()
@@ -211,7 +210,7 @@ class FxThread(ThreadJob):
         self.on_quotes()
 
     def set_exchange(self, name):
-        class_ = globals().get(name, CryptoCompare)
+        class_ = globals().get(name, CoinMarketCap)
         self.print_error("using exchange", name)
         if self.config_exchange() != name:
             self.config.set_key('use_exchange', name, True)

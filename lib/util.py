@@ -432,25 +432,16 @@ def time_difference(distance_in_time, include_seconds):
 
 # For raw json, append /insight-api-zcash
 mainnet_block_explorers = {
-    'Zcl-explorer.com': ('http://zcl-explorer.com/insight/',
+    'explorer.btcprivate.org': ('https://explorer.btcprivate.org',
                         {'tx': 'tx', 'addr': 'address'}),
-    'zclzclzcl.com': ('http://zclzclzcl.com',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'Zcl-explorer.com - Alternate 1': ('http://as1.zcl-explorer.com',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'Zcl-explorer.com - Alternate 2': ('http://eu1.zcl-explorer.com',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'explorer.zclassic.org': ('http://explorer.zclassic.org',
-                        {'tx': 'tx', 'addr': 'address'}),
-    'explorer1.zclassic.org': ('http://explorer1.zclassic.org',
+    'system default': ('blockchain:',
                         {'tx': 'tx', 'addr': 'address'})
 
 }
 
-# TODO btcp testnet block explorer
 testnet_block_explorers = {
-    #'Blocktrail.com': ('https://www.blocktrail.com/tBTC',
-                       #{'tx': 'tx', 'addr': 'address'}),
+    #'testnet.btcprivate.org': ('https://testnet.btcprivate.org',
+    #                    {'tx': 'tx', 'addr': 'address'}),
     'system default': ('blockchain:',
                        {'tx': 'tx', 'addr': 'address'})
 }
@@ -460,7 +451,7 @@ def block_explorer_info():
     return testnet_block_explorers if bitcoin.NetworkConstants.TESTNET else mainnet_block_explorers
 
 def block_explorer(config):
-    return config.get('block_explorer', 'explorer.zclassic.org/insight/')
+    return config.get('block_explorer', 'explorer.btcprivate.org')
 
 def block_explorer_tuple(config):
     return block_explorer_info().get(block_explorer(config))
