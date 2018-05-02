@@ -1,7 +1,7 @@
 BTCP Electrum - Lightweight Bitcoin Private Client
 ==========================================
 
-Current Release (P!1.0.0): https://github.com/BTCPrivate/electrum-btcp/releases/tag/P!1.0.0
+Download Current Release: https://github.com/BTCPrivate/electrum-btcp/releases/
 
 
 Viewing & Sending from Z addresses is not yet supported on this wallet.
